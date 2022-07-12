@@ -1,0 +1,17 @@
+<header>
+ <nav>
+   <ul class="nav">
+   <a href="/home">Home Page</a> |
+    <a href="/assignment3_1">Hobbies</a> |
+   <a href="/friends">My Friends</a> |
+    {% if session['logged_in'] %}
+        <a href="/assignment3_2">Users</a>|
+        <a href="/logout">Log Out</a>
+        <h1> Glad you're with us, {{ session.user_name }}</h1>
+    {% else %}
+        <a href="/assignment3_2">Register</a>
+        <h1 class="all_pages">Welcome to my site!</h1>
+    {% endif %}
+   </ul>
+ </nav>
+</header>

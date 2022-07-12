@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assigment3_2 Aharon</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mainStyle.css')}}">
+    <script defer="" src="{{ url_for('static',filename='js/JavaScript.js') }}"></script>
+</head>
+<body>
+{% include('header.html') %}
+     <h3> Search form </h3>
+     <h4> insert an email address of the user you want to find</h4>
+    <form method="GET" action="/assignment3_2">
+    email: <input name="user_email" type=text" placeholder="User Email"><br><br>
+    <input type="submit" value="search">
+    </form>
+
+    <h3>search result:</h3>
+    {% if user_email %}
+    <h4> Hello {{ user_name }},  {{ user_email }} </h4>
+    {% elif user_email==null and users%}
+    <h4> no results found, here is the user list:</h4>
+        <ul> {% for user,user_info in users.items() %}
+        <li>Name: {{ user_info['name'] }} &nbsp Email: {{ user_info['email'] }}</li>
+        {% endfor%}
+        </ul>
+    {% endif %}
+
+   {% if not session.logged_in %}
+     <h3> Registration form</h3>
+    <form method="POST" action="/assignment3_2">
+    user name:<input name="user_name" type="text" placeholder="User Name"><br>
+    <br>
+    password: <input name="password" type=password" placeholder="Password"><br>
+     <br>
+    <input type="submit" value="confirm">
+    </form>
+    {% endif %}
+
+
+</body>
+</html>

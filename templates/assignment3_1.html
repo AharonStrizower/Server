@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mainStyle.css')}}">
+    <script defer="" src="{{ url_for('static',filename='js/JavaScript.js') }}"></script>
+    <title>assignment3_1 Aharon</title>
+</head>
+<body>
+
+{% include('header.html') %}
+
+{% block friends %}
+<h2>My first hobby is: {{ hobby1 }}</h2>
+<h2>My second hobby is: {{ hobby2| lower }}</h2>
+<h2>My third hobby is: {{ hobby3 | default('missing third hobby', true) }}</h2>
+
+
+
+<h1>My favorite artists:</h1>
+<ol>
+    {% for artist in artists%}
+    <li>{{ artist }}</li>
+    {% endfor %}
+</ol>
+
+{% endblock %}
+</body>
+</html>
