@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>users_page Aharon</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mainStyle.css')}}">
+
+</head>
+<body>
+
+{% include('header.html') %}
+
+<h1>Users Page</h1>
+
+<h2>Form:</h2>
+
+{% for user in users %}
+    <div class="container">
+
+    <h3>Name: {{ user.name }}, Email: {{ user.email }}, Date: {{ user.creat_date }}</h3>
+    </div>
+{% endfor %}
+
+</body>
+</html>

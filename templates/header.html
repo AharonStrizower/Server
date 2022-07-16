@@ -5,13 +5,15 @@
     <a href="/assignment3_1">Hobbies</a> |
    <a href="/friends">My Friends</a> |
     {% if session['logged_in'] %}
-        <a href="/assignment3_2">Users</a>|
+        <a href="/assignment3_2">Search</a>|
         <a href="/logout">Log Out</a>
         <h1> Glad you're with us, {{ session.user_name }}</h1>
     {% else %}
         <a href="/assignment3_2">Register</a>
         <h1 class="all_pages">Welcome to my site!</h1>
     {% endif %}
+   <a href="/assignment_4">assignment4: manage users table</a><br><br>
+   <a href="/assignment_4/outer_source">assignment4: frontend + backend</a>
    </ul>
  </nav>
 </header>

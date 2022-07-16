@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment_4_outer_source Aharon</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mainStyle.css')}}">
+</head>
+
+<body>
+{% include('header.html') %}
+<h4>insert id please: (frontend)</h4>
+<form name="frontend_form" >
+    id: <input name="id" type=text" id="id_num"><br>
+    <br>
+    <button type="button" onclick="getUsers('id_num')"> get user</button>
+</form>
+
+<main>
+
+</main>
+<script src="/static/js/assignment_4.js"></script>
+<hr>
+
+<h4>insert id please: (backend)</h4>
+<form method="POST" action="/assignment_4/outer_source">
+    id: <input name="id" type=text" id="id_num"><br>
+    <br>
+    <input type="submit" value="get user">
+</form>
+{% if user %}
+   <h4> user id: {{ user['data']['id'] }} </h4>
+   <img src="{{ user['data']['avatar'] }}" alt="pic">
+   <h4> email: {{ user['data']['email'] }}</h4>
+   <h4> first_name: {{ user['data']['first_name'] }}</h4>
+   <h4> last_name: {{ user['data']['last_name'] }}</h4>
+   <hr>
+{% endif %}
+
+</body>
+</html>
